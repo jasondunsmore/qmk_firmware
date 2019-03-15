@@ -12,24 +12,29 @@ extern keymap_config_t keymap_config;
 #define KC_F_L1 LT(1,KC_F)
 #define KC_J_L1 LT(1,KC_J)
 #define KC_K_L2 LT(2,KC_K)
-#define KC_LCTL_LEFT LCTL_T(KC_LEFT)
+
 #define KC_LSFT_SPC LSFT_T(KC_SPC)
 #define KC_RSFT_ENT RSFT_T(KC_ENT)
-#define KC_RCTL_RGHT RCTL_T(KC_RGHT)
+
+#define KC_S_LALT RALT_T(KC_S)
+#define KC_L_RALT RALT_T(KC_L)
+
+#define KC_A_LCTL RCTL_T(KC_A)
+#define KC_SCLN_RCTL RCTL_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     BACK, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  BSPC,
+     NO,  1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  MINUS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     UNDS, Q,   W,   E,   R,   T,                   Y,   U,   I,   O,   P, BSLS,
+     TAB, Q,   W,   E,   R,   T,                   Y,   U,   I,   O,   P,  BSLS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     MINS, A,  S,  D_L2, F_L1, G,                  H, J_L1, K_L2, L, SCLN, QUOT,
+   GESC, A_LCTL, S_LALT, D_L2, F_L1, G,           H, J_L1, K_L2, L_RALT, SCLN_RCTL, QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LEFT, Z,  X,   C,    V,  B,   TAB,      GESC, N,   M, COMM, DOT, SLSH, RGHT,
+     BACK, Z,   X,   C,   V,   B,   BSPC,     DEL, N,   M, COMM, DOT, SLSH, UNDS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-               LALT, LCTL_LEFT, LSFT_SPC,     RSFT_ENT, RCTL_RGHT, RALT
+                    LEFT, DOWN, LSFT_SPC,    RSFT_ENT, UP, RGHT
   //                  `----+----+----'        `----+----+----'
                       ),
 
@@ -37,13 +42,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F1,  F2,  F3,  F4,  F5,  F6,                  F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     NO, EXLM, AT, HASH, DLR, PERC,            CIRC, AMPR, ASTR, PLUS, PEQL, DEL,
+     NO, EXLM, AT, HASH, DLR, PERC,            CIRC, AMPR, ASTR, PLUS, EQUAL, DEL,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GRV, TILD, BSLS, LPRN, RPRN, PIPE,          LEFT, DOWN, UP, RGHT, PMNS, NO,
+     GRV, TILD, BSLS, LPRN, RPRN, PIPE,          LEFT, DOWN, UP, RGHT, MINUS, NO,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     DOWN, NO, NO, LCBR, RCBR, NO, CAPS,    INS, DQUO, LBRC, RBRC, NO, NO,  UP,
+     NO, NO, NO, LCBR, RCBR, NO, CAPS,    INS, DQUO, LBRC, RBRC, NO, NO,  NO,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       HOME, LEFT, BSPC,      DEL, RGHT, END
+                      LGUI, PGDOWN, BSPC,     DEL, PGUP, END
   //                  `----+----+----'        `----+----+----'
                       ),
    
@@ -57,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
  RESET, EEP_RST, DEBUG, KC_PWR, KC_WAKE, KC_SLEP, KC_PSCR, KC_SLCK,   KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_CAPS, KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                               KC_PAUS, KC_UNDO, KC_CUT,               KC_COPY, KC_PSTE, KC_NLCK
+                                 KC_NO,  KC_END, KC_NO,                  KC_NO,  KC_HOME,  KC_NO
                             // └────────┴────────┴────────┘                └────────┴────────┴────────┘
                       )
 };
