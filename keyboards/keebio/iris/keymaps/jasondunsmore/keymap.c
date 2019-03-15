@@ -13,28 +13,28 @@ extern keymap_config_t keymap_config;
 #define KC_J_L1 LT(1,KC_J)
 #define KC_K_L2 LT(2,KC_K)
 
-#define KC_LSFT_SPC LSFT_T(KC_SPC)
-#define KC_RSFT_ENT RSFT_T(KC_ENT)
+#define KC_LSFT_BACK LSFT_T(KC_BACK)
+#define KC_RSFT_UNDS RSFT_T(KC_UNDS)
 
 #define KC_S_LALT RALT_T(KC_S)
 #define KC_L_RALT RALT_T(KC_L)
 
 #define KC_A_LCTL RCTL_T(KC_A)
-#define KC_SCLN_RCTL RCTL_T(KC_SCLN)
+#define KC_SCOLON_RCTL RCTL_T(KC_SCOLON)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     NO,  1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  MINUS,
+    GRAVE, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  MINUS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB, Q,   W,   E,   R,   T,                   Y,   U,   I,   O,   P,  BSLS,
+     TAB, Q,   W,   E,   R,   T,                   Y,   U,   I,   O,   P,  BSLASH,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   GESC, A_LCTL, S_LALT, D_L2, F_L1, G,           H, J_L1, K_L2, L_RALT, SCLN_RCTL, QUOT,
+    ESC, A_LCTL, S_LALT, D_L2, F_L1, G,           H, J_L1, K_L2, L_RALT, SCOLON_RCTL, QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     BACK, Z,   X,   C,   V,   B,   BSPC,     DEL, N,   M, COMM, DOT, SLSH, UNDS,
+ LSFT_BACK, Z,  X,   C,   V,   B,  BSPACE, DELETE,  N,  M, COMMA, DOT, SLASH, RSFT_UNDS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                    LEFT, DOWN, LSFT_SPC,    RSFT_ENT, UP, RGHT
+                        LEFT, DOWN, SPACE,   ENTER, UP, RGHT
   //                  `----+----+----'        `----+----+----'
                       ),
 
@@ -42,13 +42,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F1,  F2,  F3,  F4,  F5,  F6,                  F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     NO, EXLM, AT, HASH, DLR, PERC,            CIRC, AMPR, ASTR, PLUS, EQUAL, DEL,
+      NO,  NO,  NO,  NO,  NO,  NO,                CIRC, LCBR, RCBR, NO, NO, NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GRV, TILD, BSLS, LPRN, RPRN, PIPE,          LEFT, DOWN, UP, RGHT, MINUS, NO,
+   PERC, PLUS, EQUAL, ASTR, AMPR, PIPE,          EXLM, LPRN, RPRN, DLR, AT, HASH,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     NO, NO, NO, LCBR, RCBR, NO, CAPS,    INS, DQUO, LBRC, RBRC, NO, NO,  NO,
+      NO,  NO,  NO,  NO,  NO,  NO, CAPS,     INS,  NO, LBRC, RBRC, NO, NO,  NO,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                      LGUI, PGDOWN, BSPC,     DEL, PGUP, END
+                     LGUI, PGDOWN, BSPACE, DELETE, PGUP, END
   //                  `----+----+----'        `----+----+----'
                       ),
    
