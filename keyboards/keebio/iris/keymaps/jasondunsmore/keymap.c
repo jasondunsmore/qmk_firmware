@@ -7,12 +7,14 @@ extern keymap_config_t keymap_config;
 #define _SYMBOL 1 // Symbols
 #define _ADJUST 2 // Hardware adjustment keys
 
-#define KC_BACK LALT(KC_LEFT)
+#define KC_CARROT KC_CIRCUMFLEX
+
 #define KC_D_L2 LT(2,KC_D)
 #define KC_F_L1 LT(1,KC_F)
 #define KC_J_L1 LT(1,KC_J)
 #define KC_K_L2 LT(2,KC_K)
 
+#define KC_BACK LALT(KC_LEFT)
 #define KC_LSFT_BACK LSFT_T(KC_BACK)
 #define KC_RSFT_UNDS RSFT_T(KC_UNDS)
 
