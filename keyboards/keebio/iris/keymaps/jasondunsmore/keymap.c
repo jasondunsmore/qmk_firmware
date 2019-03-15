@@ -44,9 +44,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F1,  F2,  F3,  F4,  F5,  F6,                  F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   NO,  NO,  NO,  NO,  NO,  NO,                CIRC, LCBR, RCBR, NO, NO, NO,
+   NO,  NO,  NO,  NO,  NO,  NO,                CARROT, LCBR, RCBR, NO, NO, NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   PERC, PLUS, EQUAL, ASTR, AMPR, HASH,          EXLM, LPRN, RPRN, DLR, AT, PIPE,
+   PERC, PLUS, EQUAL, ASTR, AMPR, HASH,       EXCLAIM, LPRN, RPRN, DLR, AT, PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
       NO,  NO,  NO,  NO,  NO,  LEAD, CAPS,     INS,  NO, LBRC, RBRC, NO, NO,  NO,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -81,6 +81,12 @@ void matrix_scan_user(void) {
     }
     SEQ_TWO_KEYS(KC_1, KC_2) {
       SEND_STRING("½");
+    }
+    SEQ_TWO_KEYS(KC_1, KC_3) {
+      SEND_STRING("⅓");
+    }
+    SEQ_TWO_KEYS(KC_2, KC_3) {
+      SEND_STRING("⅔");
     }
     SEQ_TWO_KEYS(KC_1, KC_4) {
       SEND_STRING("¼");
