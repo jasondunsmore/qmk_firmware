@@ -34,3 +34,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
+
+#define LEADER_TIMEOUT 500
+#define LEADER_PER_KEY_TIMING

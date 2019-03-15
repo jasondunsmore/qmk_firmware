@@ -42,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F1,  F2,  F3,  F4,  F5,  F6,                  F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  NO,  NO,  NO,  NO,  NO,                CIRC, LCBR, RCBR, NO, NO, NO,
+   NO,  NO,  NO,  NO,  NO,  NO,                CIRC, LCBR, RCBR, NO, NO, NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   PERC, PLUS, EQUAL, ASTR, AMPR, PIPE,          EXLM, LPRN, RPRN, DLR, AT, HASH,
+   PERC, PLUS, EQUAL, ASTR, AMPR, HASH,          EXLM, LPRN, RPRN, DLR, AT, PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-      NO,  NO,  NO,  NO,  NO,  NO, CAPS,     INS,  NO, LBRC, RBRC, NO, NO,  NO,
+      NO,  NO,  NO,  NO,  NO,  LEAD, CAPS,     INS,  NO, LBRC, RBRC, NO, NO,  NO,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      LGUI, PGDOWN, BSPACE, DELETE, PGUP, END
   //                  `----+----+----'        `----+----+----'
@@ -66,3 +66,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             // └────────┴────────┴────────┘                └────────┴────────┴────────┘
                       )
 };
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_0) {
+      SEND_STRING("°");
+    }
+    SEQ_TWO_KEYS(KC_1, KC_2) {
+      SEND_STRING("½");
+    }
+    SEQ_TWO_KEYS(KC_1, KC_4) {
+      SEND_STRING("¼");
+    }
+    SEQ_TWO_KEYS(KC_3, KC_4) {
+      SEND_STRING("¾");
+    }
+  }
+}
