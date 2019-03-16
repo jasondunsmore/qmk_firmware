@@ -7,6 +7,7 @@ extern keymap_config_t keymap_config;
 #define _SYMBOL 1 // Symbols
 #define _ADJUST 2 // Hardware adjustment keys
 
+#define KC_BACK LALT(KC_LEFT)
 
 
 
@@ -30,13 +31,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
       F1,  F2,  F3,  F4,  F5,  F6,                 F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  NO,  NO,  NO,  NO,  NO,                  CIRC, NO, NO, NO, NO, NO,
+      NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO,  NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO, HASH, PERC, ASTR, AMPR, NO,       EXCLAIM, LCBR, RCBR, DLR, AT, PIPE,
+      NO, NO, DLR, PERC, AMPR, NO,                LEFT, DOWN, UP, RIGHT, NO, NO,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-    LGUI,  NO,  NO,  NO,  NO,  LEAD, LEFT,   RIGHT,  NO, LBRC, RBRC, NO, NO,  NO,
+      NO,  NO,  NO,  NO,  NO,  NO, HASH,     PIPE, HOME, PGDOWN, PGUP, END, NO, NO,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     END, PGDOWN, UP,         DOWN, PGUP, HOME
+                       LEAD, LBRC, LCBR,      RCBR, RBRC, RGUI
   //                  `----+----+----'        `----+----+----'
                       ),
    
