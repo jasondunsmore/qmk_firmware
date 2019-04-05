@@ -4,43 +4,69 @@ extern keymap_config_t keymap_config;
 
 // Layers
 #define _QWERTY 0 // Base layer
-#define _SYMBOL 1 // Symbols
+#define _ONE 1
+#define _TWO 2
 
 #define KC_LCA_TAB LCA_T(KC_TAB)
 #define KC_LCA_BSLASH LCA_T(KC_BSLASH)
-#define KC_LCTL_DELETE LCTL_T(KC_DELETE)
-#define KC_L1_SPACE LT(1,KC_SPACE)
-#define KC_L1_ENTER LT(1,KC_ENTER)
-#define KC_RCTL_BSPACE RCTL_T(KC_BSPACE)
-#define KC_LSFT_A LSFT_T(KC_A)
+#define KC_RCTL_QUOT RCTL_T(KC_QUOT)
+#define KC_LCTL_GRAVE LCTL_T(KC_GRAVE)
+#define KC_ONE MO(1)
+#define KC_TWO MO(2)
+
+// Org-mode
+#define KC_LCS_LEFT LALT(LSFT(KC_LEFT))
+#define KC_LCS_RIGHT LALT(LSFT(KC_RIGHT))
+#define KC_LCS_UP LALT(LSFT(KC_UP))
+#define KC_LCS_DOWN LALT(LSFT(KC_DOWN))
+
+// Web browser
+#define KC_C_PGUP C(KC_PGUP)
+#define KC_C_PGDOWN C(KC_PGDOWN)
+#define KC_A_LEFT A(KC_LEFT)
+#define KC_A_RIGHT A(KC_RIGHT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   GRAVE, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  BSPACE,
+   ESC, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  BSPACE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    LCA_TAB, Q,  W,   E,   R,   T,                  Y,   U,   I,   O,   P,  LCA_BSLASH,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      ESC, LSFT_A,   S,   D,   F,   G,             H,   J,   K,   L, SCOLON, QUOT,
+  LCTL_GRAVE, A, S,  D,   F,   G,                  H,   J,   K,   L, SCOLON, RCTL_QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
     LSPO, Z,   X,   C,   V,   B,  MINUS,    UNDS, N,   M, COMMA, DOT, SLASH, RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-          LALT, LCTL_DELETE, L1_SPACE,   L1_ENTER, RCTL_BSPACE, RALT
+                      LALT, ONE, SPACE,   ENTER, TWO, RALT
   //                  `----+----+----'        `----+----+----'
                       ),
 
-   [_SYMBOL] = LAYOUT_kc(
+   [_ONE] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
       F1,  F2,  F3,  F4,  F5,  F6,                 F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-    BRID, BRIU, F15, F16, F17, F18,                F19, F20, F21, F22, F23, F24,
+      NO,  1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  MINUS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   DLR, HASH, AT, EXCLAIM, CIRC, ASTR,           LEFT, DOWN, UP, RIGHT, NO, NO,
+      TILD, EXLM, AT, HASH, DLR, PERC,          CIRC, AMPR, ASTR, LBRC, RBRC, PLUS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
- VOLD, VOLU, MUTE, PWR, PERC, GRAVE, PLUS, EQUAL, HOME, PGDOWN, PGUP, END, NO, CAPSLOCK,
+      NO, NO, NO, NO, NO, NO, NO,            NO, NO, NO,  NO, LCBR, RCBR, EQUAL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                      LGUI, LBRC, LCBR,      RCBR, RBRC, RGUI
+                        NO,  NO,  NO,          DEL, EQUAL, LGUI
+  //                  `----+----+----'        `----+----+----'
+                      ),
+
+   [_TWO] = LAYOUT_kc(
+  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+      PWR,  NO,  NO, VOLU, BRIU, NO,              NO, C_PGUP, NO,  NO, C_PGUP, PGUP,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+      NO,  NO,  MUTE, VOLD, BRID, NO,    NO, C_PGDOWN, A_LEFT, A_RIGHT, C_PGDOWN, PGDOWN,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+      NO,  NO,  LEFT, RIGHT, UP, NO,         NO, LCS_UP, LCS_LEFT, LCS_RIGHT, NO, HOME,
+  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+      NO, NO,  NO,  NO,  DOWN, NO,  NO,       NO, NO, LCS_DOWN, NO, NO, NO, END,
+  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                        INS, CAPS, DEL,          NO,  NO,  NO
   //                  `----+----+----'        `----+----+----'
                       )
 };
