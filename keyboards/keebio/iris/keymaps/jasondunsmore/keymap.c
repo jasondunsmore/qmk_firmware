@@ -9,8 +9,8 @@ extern keymap_config_t keymap_config;
 
 #define KC_LCA_TAB LCA_T(KC_TAB)
 #define KC_LCA_BSLASH LCA_T(KC_BSLASH)
-#define KC_RCTL_QUOT RCTL_T(KC_QUOT)
-#define KC_LCTL_GRAVE LCTL_T(KC_GRAVE)
+#define KC_RALT_QUOT RALT_T(KC_QUOT)
+#define KC_LALT_GRAVE LALT_T(KC_GRAVE)
 #define KC_ONE MO(1)
 #define KC_TWO MO(2)
 
@@ -34,11 +34,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    LCA_TAB, Q,  W,   E,   R,   T,                  Y,   U,   I,   O,   P,  LCA_BSLASH,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-  LCTL_GRAVE, A, S,  D,   F,   G,                  H,   J,   K,   L, SCOLON, RCTL_QUOT,
+  LALT_GRAVE, A, S,  D,   F,   G,                  H,   J,   K,   L, SCOLON, RALT_QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
     LSPO, Z,   X,   C,   V,   B,  MINUS,    UNDS, N,   M, COMMA, DOT, SLASH, RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                      LALT, ONE, SPACE,   ENTER, TWO, RALT
+                      LCTL, ONE, SPACE,   ENTER, TWO, RCTL
   //                  `----+----+----'        `----+----+----'
                       ),
 
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       TILD, EXLM, AT, HASH, DLR, PERC,          CIRC, AMPR, ASTR, LBRC, RBRC, PLUS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-      NO, NO, NO, NO, NO, NO, NO,            NO, NO, NO,  NO, LCBR, RCBR, EQUAL,
+      NO, NO, NO, NO, NO, PIPE, NO,            DOT, NO, NO,  NO, LCBR, RCBR, EQUAL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                         NO,  NO,  NO,          DEL, EQUAL, LGUI
   //                  `----+----+----'        `----+----+----'
@@ -58,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_TWO] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-      PWR,  NO,  NO, VOLU, BRIU, NO,              NO, C_PGUP, NO,  NO, C_PGUP, PGUP,
+      PWR,  NO,  NO, VOLU, BRIU, NO,              NO, C_PGUP, NO,  NO, NO, PGUP,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  NO,  MUTE, VOLD, BRID, NO,    NO, C_PGDOWN, A_LEFT, A_RIGHT, C_PGDOWN, PGDOWN,
+      NO,  NO,  MUTE, VOLD, BRID, NO,    NO, C_PGDOWN, A_LEFT, A_RIGHT, NO, PGDOWN,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
       NO,  NO,  LEFT, RIGHT, UP, NO,         NO, LCS_UP, LCS_LEFT, LCS_RIGHT, NO, HOME,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
