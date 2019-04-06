@@ -14,31 +14,19 @@ extern keymap_config_t keymap_config;
 #define KC_ONE MO(1)
 #define KC_TWO MO(2)
 
-// Org-mode
-#define KC_LCS_LEFT LALT(LSFT(KC_LEFT))
-#define KC_LCS_RIGHT LALT(LSFT(KC_RIGHT))
-#define KC_LCS_UP LALT(LSFT(KC_UP))
-#define KC_LCS_DOWN LALT(LSFT(KC_DOWN))
-
-// Web browser
-#define KC_C_PGUP C(KC_PGUP)
-#define KC_C_PGDOWN C(KC_PGDOWN)
-#define KC_A_LEFT A(KC_LEFT)
-#define KC_A_RIGHT A(KC_RIGHT)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   ESC, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  BSPACE,
+     ESC, 1,   2,   3,   4,   5,                   6,   7,   8,  9,   0,  LCA_BSLASH,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   LCA_TAB, Q,  W,   E,   R,   T,                  Y,   U,   I,   O,   P,  LCA_BSLASH,
+   LCA_TAB, Q,  W,   E,   R,   T,                  Y,   U,   I,   O,   P, BSPACE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
   LALT_GRAVE, A, S,  D,   F,   G,                  H,   J,   K,   L, SCOLON, RALT_QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-    LSPO, Z,   X,   C,   V,   B,  MINUS,    UNDS, N,   M, COMMA, DOT, SLASH, RSPC,
+    LSPO, Z,   X,   C,   V,   B,  MINUS,    EQUAL,  N,   M, COMMA, DOT, SLASH, RSPC,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                      LCTL, ONE, SPACE,   ENTER, TWO, RCTL
+                      LCTL, ONE, SPACE,      ENTER, TWO, RCTL
   //                  `----+----+----'        `----+----+----'
                       ),
 
@@ -46,27 +34,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
       F1,  F2,  F3,  F4,  F5,  F6,                 F7,  F8,  F9, F10, F11, F12,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  MINUS,
+      NO,  1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  DELETE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      TILD, EXLM, AT, HASH, DLR, PERC,          CIRC, AMPR, ASTR, LBRC, RBRC, PLUS,
+     TRNS, EXLM, AT, HASH, DLR, PERC,          CIRC, AMPR, ASTR, LBRC, RBRC, TRNS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-      NO, NO, NO, NO, NO, PIPE, NO,            DOT, NO, NO,  NO, LCBR, RCBR, EQUAL,
+     TRNS, NO, NO, NO, NO, PIPE, TRNS,        TRNS, NO, DOT,  NO, LCBR, RCBR, TRNS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                        NO,  NO,  NO,          DEL, EQUAL, LGUI
+                        TRNS, NO, TRNS,       TRNS, INS, TRNS
   //                  `----+----+----'        `----+----+----'
                       ),
 
    [_TWO] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-      PWR,  NO,  NO, VOLU, BRIU, NO,              NO, C_PGUP, NO,  NO, NO, PGUP,
+      MUTE, VOLD, VOLU, NO, BRID, BRIU,           NO,  NO,  NO,  NO,  NO,  NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  NO,  MUTE, VOLD, BRID, NO,    NO, C_PGDOWN, A_LEFT, A_RIGHT, NO, PGDOWN,
+      PWR,  HOME,  NO, UP,  NO, PGUP,              NO,  NO,  NO,  NO,  NO, NO,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-      NO,  NO,  LEFT, RIGHT, UP, NO,         NO, LCS_UP, LCS_LEFT, LCS_RIGHT, NO, HOME,
+   TRNS, END, LEFT, DOWN, RIGHT, PGDOWN,           NO,  NO,  NO,  NO,  NO, TRNS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-      NO, NO,  NO,  NO,  DOWN, NO,  NO,       NO, NO, LCS_DOWN, NO, NO, NO, END,
+      TRNS, NO,  NO,  NO,  NO, NO,  TRNS,    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                        INS, CAPS, DEL,          NO,  NO,  NO
+                        TRNS, CAPS, DEL,      TRNS,  NO, TRNS
   //                  `----+----+----'        `----+----+----'
                       )
 };
+
