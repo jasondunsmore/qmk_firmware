@@ -4,14 +4,18 @@ extern keymap_config_t keymap_config;
 
 // Layers
 #define _QWERTY 0 // Base layer
-#define _ONE 1
-#define _TWO 2
+#define _SYMB 1
+#define _NAVI 2
+#define _FUNC 3
+#define _ADJU 4
 
 #define KC_AQUT RALT_T(KC_QUOT)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_ONE MO(1)
-#define KC_TWO MO(2)
+#define KC_SYMB MO(1)
+#define KC_NAVI MO(2)
+#define KC_FUNC MO(3)
+#define KC_ADJU MO(4)
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
@@ -27,13 +31,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    LSPO, Z,   X,   C,   V,   B,  MINS,     EQL,  N,   M,  COMM,DOT, SLSH,RSPC,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     ONE, LCTL,SPC,          ENT, RCTL,TWO
+                     SYMB,LCTL,SPC,          ENT, RCTL,NAVI
 //                  `----+----+----'        `----+----+----'
      ),
 
-  [_ONE] = LAYOUT_kc(
+  [_SYMB] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-    F1,  F2,  F3,  F4,  F5,  F6,                 F7,  F8,  F9, F10, F11, F12,
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
     NO,  1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -41,21 +45,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO, BSLS,PIPE, NO, TRNS,     TRNS, NO, DOT,  NO, LCBR,RCBR,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         TRNS,TRNS,MEH
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,FUNC
 //                  `----+----+----'        `----+----+----'
       ),
 
- [_TWO] = LAYOUT_kc(
+ [_NAVI] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   MUTE,VOLD,VOLU, NO, BRID,BRIU,               CAPS,INS,  NO,  NO, DBUG,REST,
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   PWR, HOME, NO,  UP,  NO, PGUP,               WH_U,BTN1,MS_U,BTN2, NO, TRNS,
+    NO,  NO,  NO,  UP,  NO,  NO,                 NO, PGUP,HOME, NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,END, LEFT,DOWN,RGHT,PGDN,               WH_D,MS_L,MS_D,MS_R, NO, TRNS,
+   TRNS, NO, LEFT,DOWN,RGHT, NO,                 NO, PGDN,END,  NO,  NO, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     HYPR,TRNS,TRNS,         TRNS,TRNS,TRNS
+                     ADJU,TRNS,TRNS,         TRNS,TRNS,TRNS
+//                  `----+----+----'        `----+----+----'
+     ),
+
+ [_FUNC] = LAYOUT_kc(
+//,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO, CAPS,INS,  NO,  NO, TRNS,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+   F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
+//|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
+//`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
+//                  `----+----+----'        `----+----+----'
+     ),
+
+ [_ADJU] = LAYOUT_kc(
+//,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+   MUTE,VOLD,VOLU,BRID,BRIU, NO,                 NO, REST,DBUG, NO, PWR, TRNS,
+//|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
+//`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
      )
 };
