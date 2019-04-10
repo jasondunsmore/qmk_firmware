@@ -7,7 +7,6 @@ extern keymap_config_t keymap_config;
 #define _SYMB 1
 #define _NAVI 2
 #define _FUNC 3
-#define _ADJU 4
 
 #define KC_AQUT RALT_T(KC_QUOT)
 #define KC_AGRV LALT_T(KC_GRAVE)
@@ -15,7 +14,6 @@ extern keymap_config_t keymap_config;
 #define KC_SYMB MO(1)
 #define KC_NAVI MO(2)
 #define KC_FUNC MO(3)
-#define KC_ADJU MO(4)
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
@@ -57,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS, NO, LEFT,DOWN,RGHT, NO,                 NO, PGDN,END,  NO,  NO, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
+   TRNS,MUTE,VOLD,VOLU,BRID,BRIU,TRNS,     TRNS, NO, REST,DBUG, NO, PWR, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     ADJU,TRNS,TRNS,         TRNS,TRNS,TRNS
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
      ),
 
@@ -70,20 +68,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NO,  NO,  NO,  NO,  NO,  NO,                 NO, CAPS,INS,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
-//|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
-//`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
-//                  `----+----+----'        `----+----+----'
-     ),
-
- [_ADJU] = LAYOUT_kc(
-//,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
-//|----+----+----+----+----+----|              |----+----+----+----+----+----|
-    NO,  NO,  NO,  NO,  NO,  NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
-//|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   MUTE,VOLD,VOLU,BRID,BRIU, NO,                 NO, REST,DBUG, NO, PWR, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
