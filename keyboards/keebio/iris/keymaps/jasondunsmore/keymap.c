@@ -44,9 +44,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
     NO,  1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO,                 NO,  4,   5,   6,   NO, TRNS,
+   TRNS, NO,  NO,  NO,  NO,  NO,                ASTR, 4,   5,   6,  PLUS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  1,   2,   3,   NO, TRNS,
+   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS,SLSH, 1,   2,   3,  MINS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         SYMB,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
