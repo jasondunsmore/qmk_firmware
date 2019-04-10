@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_NAVI] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-    NO,  NO,  NO,  NO, CAPS,INS,                 NO,  NO,  NO,  NO,  NO, TRNS,
+    NO, PAUS,SLCK,PSCR,INS, CAPS,                NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
     NO,  NO,  NO,  UP,  NO,  NO,                 NO, PGUP,HOME, NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
