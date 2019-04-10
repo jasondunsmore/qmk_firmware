@@ -9,13 +9,16 @@ extern keymap_config_t keymap_config;
 #define _SYMB 3
 #define _FUNC 4
 
+// Keys
 #define KC_AQUT RALT_T(KC_QUOT)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_NUMB MO(1)
-#define KC_NAVI MO(2)
-#define KC_SYMB MO(3)
-#define KC_FUNC MO(4)
+#define KC_MISY LT(_SYMB, KC_MINS)
+#define KC_EQFU LT(_FUNC, KC_EQL)
+#define KC_NUMB MO(_NUMB)
+#define KC_NAVI MO(_NAVI)
+#define KC_SYMB MO(_SYMB)
+#define KC_FUNC MO(_FUNC)
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
@@ -29,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUT,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   LSPO, Z,   X,   C,   V,   B,  MINS,     EQL,  N,   M,  COMM,DOT, SLSH,RSPC,
+   LSPO, Z,   X,   C,   V,   B,  MISY,     EQFU, N,   M,  COMM,DOT, SLSH,RSPC,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NUMB,LCTL,SPC,          ENT, RCTL,NAVI
 //                  `----+----+----'        `----+----+----'
@@ -45,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  1,   2,   3,   NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         TRNS,TRNS,FUNC
+                     TRNS,TRNS,TRNS,         SYMB,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
       ),
 
@@ -59,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS,MUTE,VOLD,VOLU,BRID,BRIU,TRNS,     TRNS, NO, REST,DBUG, NO, PWR, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     SYMB,TRNS,TRNS,         TRNS,TRNS,TRNS
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
      ),
 
