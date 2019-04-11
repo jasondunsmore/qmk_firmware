@@ -20,6 +20,19 @@ extern keymap_config_t keymap_config;
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
+// Tap Dance Declarations
+enum {
+  TD_SLSH_BSLS = 0
+};
+
+// Tap Dance Definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+  // Tap once for KC_SLSH, twice for KC_BSLS
+  [TD_SLSH_BSLS]  = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS)
+};
+
+#define KC_SLBS TD(TD_SLSH_BSLS)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
@@ -30,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUT,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   LSPO, Z,   X,   C,   V,   B,  MISY,     EQFU, N,   M,  COMM,DOT, SLSH,RSPC,
+   LSPO, Z,   X,   C,   V,   B,  MISY,     EQFU, N,   M,  COMM,DOT, SLBS,RSPC,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NULB,LCTL,SPC,          ENT, RCTL,NARB
 //                  `----+----+----'        `----+----+----'
