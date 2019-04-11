@@ -15,10 +15,8 @@ extern keymap_config_t keymap_config;
 #define KC_GUIE LGUI_T(KC_ESC)
 #define KC_MISY LT(_SYMB, KC_MINS)
 #define KC_EQFU LT(_FUNC, KC_EQL)
-#define KC_NUMB MO(_NUMB)
-#define KC_NAVI MO(_NAVI)
-#define KC_SYMB MO(_SYMB)
-#define KC_FUNC MO(_FUNC)
+#define KC_NULB LT(_NUMB, KC_LBRC)
+#define KC_NARB LT(_NAVI, KC_RBRC)
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
@@ -34,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    LSPO, Z,   X,   C,   V,   B,  MISY,     EQFU, N,   M,  COMM,DOT, SLSH,RSPC,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NUMB,LCTL,SPC,          ENT, RCTL,NAVI
+                     NULB,LCTL,SPC,          ENT, RCTL,NARB
 //                  `----+----+----'        `----+----+----'
      ),
 
@@ -48,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS,SLSH, 1,   2,   3,  MINS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         SYMB,TRNS,TRNS
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
       ),
 
