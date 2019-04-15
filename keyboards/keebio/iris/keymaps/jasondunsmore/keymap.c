@@ -22,7 +22,7 @@ extern keymap_config_t keymap_config;
 
 // Tap Dance Declarations
 enum {
-  TD_SLSH_BSLS = 0,
+  TD_LALT_GRV_BSLS = 0,
   TD_LSFT_LBRC,
   TD_RSFT_RBRC,
   TD_NUMB_SYMB,
@@ -31,55 +31,76 @@ enum {
 
 bool fn_held;
 
-void numb_symb(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1 && state->pressed) {
-      layer_on(_NUMB);
-      fn_held = true;
-    } else if (state->count == 2 && state->pressed) {
-      layer_on(_SYMB);
-      fn_held = true;
+void alt_grave_backslash(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+      if (!state->pressed) {
+        register_code(KC_GRAVE);
+      } else {
+        register_code(KC_LALT);
+      }
+    } else if (state->count == 2) {
+      register_code(KC_BSLASH);
     }
+}
+
+void alt_grave_backslash_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+      unregister_code(KC_GRAVE);
+      unregister_code(KC_LALT);
+    } else if (state->count == 2) {
+      unregister_code(KC_BSLASH);
+    }
+}
+
+void numb_symb(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1 && state->pressed) {
+    layer_on(_NUMB);
+    fn_held = true;
+  } else if (state->count == 2 && state->pressed) {
+    layer_on(_SYMB);
+    fn_held = true;
+  }
 }
 
 void numb_symb_finish(qk_tap_dance_state_t *state, void *user_data) {
-    if (fn_held) {
-      layer_off(_NUMB);
-      layer_off(_SYMB);
-      fn_held = false;
-    }
+  if (fn_held) {
+    layer_off(_NUMB);
+    layer_off(_SYMB);
+    fn_held = false;
+  }
 }
 
 void navi_func(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1 && state->pressed) {
-      layer_on(_NAVI);
-      fn_held = true;
-    } else if (state->count == 2 && state->pressed) {
-      layer_on(_FUNC);
-      fn_held = true;
-    }
+  if (state->count == 1 && state->pressed) {
+    layer_on(_NAVI);
+    fn_held = true;
+  } else if (state->count == 2 && state->pressed) {
+    layer_on(_FUNC);
+    fn_held = true;
+  }
 }
 
 void navi_func_finish(qk_tap_dance_state_t *state, void *user_data) {
-    if (fn_held) {
-      layer_off(_NAVI);
-      layer_off(_FUNC);
-      fn_held = false;
-    }
+  if (fn_held) {
+    layer_off(_NAVI);
+    layer_off(_FUNC);
+    fn_held = false;
+  }
 }
 
 void left_brackets(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-      if (!state->pressed) {
-        register_code(KC_LSFT);
-        register_code(KC_9);
-      } else {
-        register_code(KC_LSFT);
-      }
-    } else if (state->count == 2) {
-        register_code(KC_LBRC);
-    } else if (state->count == 3) {
-        register_code(KC_LSFT);
-        register_code(KC_LBRC);
+  if (state->count == 1) {
+    if (!state->pressed) {
+      register_code(KC_LSFT);
+      register_code(KC_9);
+    } else {
+      register_code(KC_LSFT);
+    }
+  } else if (state->count == 2) {
+    register_code(KC_LBRC);
+  } else if (state->count == 3) {
+    register_code(KC_LSFT);
+    register_code(KC_LBRC);
     }
 }
 
@@ -126,7 +147,7 @@ void right_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
 // Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   // Tap once for KC_SLSH, twice for KC_BSLS
-  [TD_SLSH_BSLS]  = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS),
+  [TD_LALT_GRV_BSLS]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, alt_grave_backslash, alt_grave_backslash_reset),
   [TD_LSFT_LBRC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, left_brackets, left_brackets_reset),
   [TD_RSFT_RBRC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, right_brackets, right_brackets_reset),
   [TD_NUMB_SYMB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, numb_symb, numb_symb_finish),
@@ -134,7 +155,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 
 // Tap Dance Keys
-#define KC_SLBS TD(TD_SLSH_BSLS)
+#define KC_AGRB TD(TD_LALT_GRV_BSLS)
 #define KC_LSBK TD(TD_LSFT_LBRC)
 #define KC_RSBK TD(TD_RSFT_RBRC)
 #define KC_NUSY TD(TD_NUMB_SYMB)
@@ -148,9 +169,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TAB,  Q,   W,   E,   R,   T,                  Y,   U,   I,   O,   P,  BSPC,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUT,
+   AGRB, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUT,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   LSBK, Z,   X,   C,   V,   B,  MINS,     EQL,  N,   M,  COMM,DOT, SLBS,RSBK,
+   LSBK, Z,   X,   C,   V,   B,  MINS,     EQL,  N,   M,  COMM,DOT, SLSH,RSBK,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NUSY,LCTL,SPC,          ENT, RCTL,NAFU
 //                  `----+----+----'        `----+----+----'
@@ -176,9 +197,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    WAKE, HOME, NO,  UP,  NO, PGUP,               NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,END, LEFT,DOWN,RGHT,PGDN,               WAKE, NO,  NO,  NO,  NO, TRNS,
+   TRNS,END, LEFT,DOWN,RGHT,PGDN,                NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO,  NO,      TRNS,PWR, REST,DBUG, NO,  NO, TRNS,
+   TRNS, NO,  NO,  NO,  NO,  NO,  NO,      TRNS, NO, REST,DBUG, NO,  NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
