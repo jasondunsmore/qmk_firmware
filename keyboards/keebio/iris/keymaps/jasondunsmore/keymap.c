@@ -10,7 +10,7 @@ extern keymap_config_t keymap_config;
 #define _FUNC 4
 
 // Keys
-#define KC_AQUT RALT_T(KC_QUOT)
+//#define KC_AQUT RALT_T(KC_QUOT)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_GUIE LGUI_T(KC_ESC)
 #define KC_MISY LT(_SYMB, KC_MINS)
@@ -98,10 +98,7 @@ void left_brackets(qk_tap_dance_state_t *state, void *user_data) {
     }
   } else if (state->count == 2) {
     register_code(KC_LBRC);
-  } else if (state->count == 3) {
-    register_code(KC_LSFT);
-    register_code(KC_LBRC);
-    }
+  }
 }
 
 void left_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
@@ -109,9 +106,6 @@ void left_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LSFT);
         unregister_code(KC_9);
     } else if (state->count == 2) {
-        unregister_code(KC_LBRC);
-    } else if (state->count == 3) {
-        unregister_code(KC_LSFT);
         unregister_code(KC_LBRC);
     }
 }
@@ -126,9 +120,6 @@ void right_brackets(qk_tap_dance_state_t *state, void *user_data) {
       }
     } else if (state->count == 2) {
         register_code(KC_RBRC);
-    } else if (state->count == 3) {
-        register_code(KC_RSFT);
-        register_code(KC_RBRC);
     }
 }
 
@@ -137,9 +128,6 @@ void right_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_RSFT);
         unregister_code(KC_0);
     } else if (state->count == 2) {
-        unregister_code(KC_RBRC);
-    } else if (state->count == 3) {
-        unregister_code(KC_RSFT);
         unregister_code(KC_RBRC);
     }
 }
@@ -169,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TAB,  Q,   W,   E,   R,   T,                  Y,   U,   I,   O,   P,  BSPC,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   AGRB, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUT,
+   AGRB, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,QUOT,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    LSBK, Z,   X,   C,   V,   B,  MINS,     EQL,  N,   M,  COMM,DOT, SLSH,RSBK,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -187,19 +175,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS,SLSH, 1,   2,   3,  MINS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
+                     TRNS,TRNS,TRNS,         TRNS,DOT, TRNS
 //                  `----+----+----'        `----+----+----'
       ),
 
  [_NAVI] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   PWR, MUTE,VOLD,VOLU,BRID,BRIU,                NO,  NO,  NO,  NO,  NO, TRNS,
+   PWR, MUTE,VOLD,VOLU,BRID,BRIU,               REST,DBUG, NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   WAKE, HOME, NO,  UP,  NO, PGUP,               NO,  NO,  NO,  NO,  NO, TRNS,
+   WAKE,HOME,PGDN, UP, PGUP, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,END, LEFT,DOWN,RGHT,PGDN,                NO,  NO,  NO,  NO,  NO, TRNS,
+   TRNS,END, LEFT,DOWN,RGHT, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO,  NO,      TRNS, NO, REST,DBUG, NO,  NO, TRNS,
+   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
