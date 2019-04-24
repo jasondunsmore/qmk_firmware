@@ -10,13 +10,8 @@ extern keymap_config_t keymap_config;
 #define _FUNC 4
 
 // Keys
-//#define KC_AQUT RALT_T(KC_QUOT)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_MISY LT(_SYMB, KC_MINS)
-#define KC_EQFU LT(_FUNC, KC_EQL)
-#define KC_NUMB MO(_NUMB)
-#define KC_NAVI MO(_NAVI)
 #define KC_REST RESET
 #define KC_DBUG DEBUG
 
