@@ -29,8 +29,6 @@ enum {
   TD_NAVI_FUNC
 };
 
-bool fn_held;
-
 void alt_grave_backslash(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
       if (!state->pressed) {
@@ -52,39 +50,43 @@ void alt_grave_backslash_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+bool numb_symb_held;
+
 void numb_symb(qk_tap_dance_state_t *state, void *user_data) {
   if (state->count == 1 && state->pressed) {
     layer_on(_NUMB);
-    fn_held = true;
+    numb_symb_held = true;
   } else if (state->count == 2 && state->pressed) {
     layer_on(_SYMB);
-    fn_held = true;
+    numb_symb_held = true;
   }
 }
 
 void numb_symb_finish(qk_tap_dance_state_t *state, void *user_data) {
-  if (fn_held) {
+  if (numb_symb_held) {
     layer_off(_NUMB);
     layer_off(_SYMB);
-    fn_held = false;
+    numb_symb_held = false;
   }
 }
+
+bool navi_func_held;
 
 void navi_func(qk_tap_dance_state_t *state, void *user_data) {
   if (state->count == 1 && state->pressed) {
     layer_on(_NAVI);
-    fn_held = true;
+    navi_func_held = true;
   } else if (state->count == 2 && state->pressed) {
     layer_on(_FUNC);
-    fn_held = true;
+    navi_func_held = true;
   }
 }
 
 void navi_func_finish(qk_tap_dance_state_t *state, void *user_data) {
-  if (fn_held) {
+  if (navi_func_held) {
     layer_off(_NAVI);
     layer_off(_FUNC);
-    fn_held = false;
+    navi_func_held = false;
   }
 }
 
@@ -106,7 +108,7 @@ void left_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LSFT);
         unregister_code(KC_9);
     } else if (state->count == 2) {
-        unregister_code(KC_LBRC);
+      unregister_code(KC_LBRC);
     }
 }
 
@@ -119,7 +121,7 @@ void right_brackets(qk_tap_dance_state_t *state, void *user_data) {
         register_code(KC_RSFT);
       }
     } else if (state->count == 2) {
-        register_code(KC_RBRC);
+      register_code(KC_RBRC);
     }
 }
 
@@ -128,7 +130,7 @@ void right_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_RSFT);
         unregister_code(KC_0);
     } else if (state->count == 2) {
-        unregister_code(KC_RBRC);
+      unregister_code(KC_RBRC);
     }
 }
 
