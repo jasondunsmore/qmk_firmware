@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    PWR, MUTE,VOLD,VOLU,BRID,BRIU,               REST,DBUG, NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   WAKE,HOME,PGDN, UP, PGUP, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
+   WAKE,HOME,PGUP, UP, PGDN, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,END, LEFT,DOWN,RGHT, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
