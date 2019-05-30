@@ -87,6 +87,7 @@ void right_brackets_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+
 // Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   // Tap once for KC_SLSH, twice for KC_BSLS
@@ -120,9 +121,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-    NO, F13, F14, F15, F16,  NO,                 NO,  7,   8,   9,   0,  TRNS,
+    NO, F17, F18, F19, F20,  NO,                 NO,  7,   8,   9,   0,  TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,F17, F18, F19, F20,  NO,                ASTR, 4,   5,   6,  PLUS,TRNS,
+   TRNS,F13, F14, F15, F16,  NO,                ASTR, 4,   5,   6,  PLUS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
    TRNS,F21, F22, F23, F24,  NO, TRNS,     TRNS,SLSH, 1,   2,   3,  MINS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -134,11 +135,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    PWR, MUTE,VOLD,VOLU,BRID,BRIU,               REST,DBUG, NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   WAKE,HOME,PGUP, UP, PGDN, NO,                 NO,  NO,  NO,  NO,  NO, TRNS,
+   WAKE,HOME,PGUP, UP, PGDN,TRNS,                NO,  NO,  NO,  NO,  NO, TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,END, LEFT,DOWN,RGHT, NO,                PAUS,CAPS,PSCR,SLCK,INS, TRNS,
+   TRNS,END, LEFT,DOWN,RGHT,TRNS,               PAUS,CAPS,PSCR,SLCK,INS, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS, NO,  NO,  NO,  NO,  NO, TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
+   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, NO,  NO,  NO,  NO,  NO, TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
