@@ -11,9 +11,9 @@ extern keymap_config_t keymap_config;
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_PSFT RSFT_T(KC_EQL)
-#define KC_MSFT LSFT_T(KC_MINS)
-
+#define KC_DSFT RSFT_T(KC_DEL)
+#define KC_MCTL LCTL_T(KC_MINS)
+#define KC_ECTL RCTL_T(KC_EQL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -25,9 +25,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   MSFT, Z,   X,   C,   V,   B,  NAVI,     NAVI, N,   M,  COMM,DOT, SLSH,PSFT,
+   LSFT, Z,   X,   C,   V,   B,  NAVI,     NAVI, N,   M,  COMM,DOT, SLSH,DSFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NAVI,LCTL, SPC,         ENT, RCTL,NAVI
+                     NAVI,MCTL, SPC,         ENT, ECTL,NAVI
 //                  `----+----+----'        `----+----+----'
      ),
 
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TILD, NO,  NO, VOLU, NO,  NO,                 NO, PGUP, UP, PGDN,HOME,DEL,
+   TILD, NO,  NO, VOLU, NO,  NO,                 NO, PGUP, UP, PGDN,HOME, NO,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS, NO, BRID,VOLD,BRIU, NO,                 NO, LEFT,DOWN,RGHT,END, TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|

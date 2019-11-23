@@ -24,4 +24,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 #define MASTER_LEFT
 
-#define TAPPING_TERM 400
+#define TAPPING_TERM 200
