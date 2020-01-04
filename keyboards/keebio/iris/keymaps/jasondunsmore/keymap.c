@@ -4,7 +4,7 @@ extern keymap_config_t keymap_config;
 
 // Layers
 #define _QWERTY 0 // Base layer
-#define _NAVI 1
+#define _NAVI   1 // Navigation layer
 
 // Keys
 #define KC_NAVI TT(_NAVI)
@@ -12,6 +12,7 @@ extern keymap_config_t keymap_config;
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
 #define KC_DSFT RSFT_T(KC_DEL)
+#define KC_PSFT LSFT_T(KC_KP_PLUS)
 #define KC_MCTL RCTL_T(KC_MINS)
 #define KC_ECTL LCTL_T(KC_EQL)
 
@@ -25,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   LSFT, Z,   X,   C,   V,   B,  NAVI,     NAVI, N,   M,  COMM,DOT, SLSH,DSFT,
+   PSFT, Z,   X,   C,   V,   B,  NAVI,     NAVI, N,   M,  COMM,DOT, SLSH,DSFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NAVI,ECTL, SPC,         ENT, MCTL,NAVI
 //                  `----+----+----'        `----+----+----'
@@ -35,11 +36,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   CAPS,TRNS,TRNS,VOLU,TRNS,TRNS,               TRNS,PGUP, UP, PGDN,HOME,TRNS,
+   TRNS,TRNS,TRNS,VOLU,TRNS,TRNS,               PGUP,HOME, UP, END, TRNS,TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,TRNS,BRID,VOLD,BRIU,TRNS,               TRNS,LEFT,DOWN,RGHT,END, TRNS,
+   TRNS,TRNS,BRID,VOLD,BRIU,TRNS,               PGDN,LEFT,DOWN,RGHT,TRNS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS,TRNS,TRNS,MUTE,TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS,LBRC,RBRC,TRNS,TRNS,
+   TRNS,TRNS,TRNS,MUTE,INS, TRNS,TRNS,     TRNS,TRNS,CAPS,LBRC,RBRC,TRNS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
