@@ -42,21 +42,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,TRNS,BRID,VOLD,BRIU,TRNS,               PGDN,LEFT,DOWN,RGHT,TRNS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS,TRNS,TRNS,NUMP,INS, TRNS,NUMP,     NUMP,TRNS,CAPS,LBRC,RBRC,TRNS,TRNS,
+   TRNS,TRNS,TRNS,NUMP,INS, TRNS,TRNS,     TRNS,TRNS,CAPS,LBRC,RBRC,TRNS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NUMP,TRNS,TRNS,         TRNS,TRNS,NUMP
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
 //                  `----+----+----'        `----+----+----'
      ),
 
   [_NUMP] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               NLCK,TRNS,PSLS,PAST,PMNS,TRNS,
+   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,NLCK,PSLS,PAST,PMNS,TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS, P7,  P8,  P9, PPLS,TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               PEQL, P4,  P5,  P6, PDOT,TRNS,
+   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS, P4,  P5,  P6, PCMM,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS, P1,  P2,  P3, PCMM,TRNS,
+   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS, P1,  P2,  P3, PEQL,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         PENT, P0, PDOT
 //                  `----+----+----'        `----+----+----'
