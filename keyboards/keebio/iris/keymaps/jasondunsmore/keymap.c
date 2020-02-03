@@ -3,13 +3,16 @@
 extern keymap_config_t keymap_config;
 
 // Layers
-#define _QWERTY 0 // Base layer
-#define _NAVI   1 // Navigation layer
-#define _NUMP   2 // Numpad layer
+#define _QWERTY   0 // Base layer
+#define _NAVI     1 // Navigation layer
+#define _NUMP     2 // Numpad layer
 
 // Keys
-#define KC_NAVI TT(_NAVI)
-#define KC_NUMP TT(_NUMP)
+#define KC_NLFT LT(_NAVI, KC_LEFT)
+#define KC_NDWN LT(_NAVI, KC_DOWN)
+#define KC_NUP LT(_NAVI, KC_UP)
+#define KC_NRGT LT(_NAVI, KC_RGHT)
+#define KC_NUMP MO(_NUMP)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
@@ -28,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   PSFT, Z,   X,   C,   V,   B,  NAVI,     NAVI, N,   M,  COMM,DOT, SLSH,DSFT,
+   PSFT, Z,   X,   C,   V,   B,  NDWN,     NUP,  N,   M,  COMM,DOT, SLSH,DSFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NAVI,ECTL, SPC,         ENT, MCTL,NAVI
+                     NLFT,ECTL,SPC,          ENT, MCTL,NRGT
 //                  `----+----+----'        `----+----+----'
      ),
 
@@ -60,5 +63,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         PENT, P0, PDOT
 //                  `----+----+----'        `----+----+----'
-     )
+     ),
 };
