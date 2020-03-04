@@ -4,23 +4,18 @@ extern keymap_config_t keymap_config;
 
 // Layers
 #define _COLEMAKDHM 0 // Colemak-DHm
-#define _QWERTY     1 // QWERTY
-#define _NAVI       2 // Navigation
-#define _NUMP       3 // Numpad
+#define _NAVI       1 // Navigation
+#define _NUMP       2 // Numpad
 
 // Keys
 #define KC_NLFT LT(_NAVI, KC_LEFT)
-#define KC_NDWN LT(_NAVI, KC_DOWN)
-#define KC_NUP  LT(_NAVI, KC_UP)
 #define KC_NRGT LT(_NAVI, KC_RGHT)
 #define KC_NUMP MO(_NUMP)
-#define KC_QWER DF(_QWERTY)
-#define KC_CMAK DF(_COLEMAKDHM)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_DSFT RSFT_T(KC_DEL)
-#define KC_PSFT LSFT_T(KC_KP_PLUS)
+#define KC_DSFT RSFT_T(KC_DOWN)
+#define KC_USFT LSFT_T(KC_UP)
 #define KC_MCTL RCTL_T(KC_MINS)
 #define KC_ECTL LCTL_T(KC_EQL)
 
@@ -34,21 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   R,   S,   T,   G,                  M,   N,   E,   I,   O,  AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   PSFT, Z,   X,   C,   D,   V,  NDWN,     NUP,  K,   H,  COMM,DOT, SLSH,DSFT,
-//`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NLFT,ECTL,SPC,          ENT, MCTL,NRGT
-//                  `----+----+----'        `----+----+----'
-     ),
-
-  [_QWERTY] = LAYOUT_kc(
-//,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   GUIE, 1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  BSLS,
-//|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TAB,  Q,   W,   E,   R,   T,                  Y,   U,   I,   O,   P,  BSPC,
-//|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUO,
-//|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   PSFT, Z,   X,   C,   V,   B,  NDWN,     NUP,  N,   M,  COMM,DOT, SLSH,DSFT,
+   USFT, Z,   X,   C,   D,   V,  NAVI,     NAVI, K,   H,  COMM,DOT, SLSH,DSFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NLFT,ECTL,SPC,          ENT, MCTL,NRGT
 //                  `----+----+----'        `----+----+----'
@@ -58,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,TRNS,MUTE,VOLU,TRNS,TRNS,               PGUP,HOME, UP, END, TRNS,TRNS,
+   TRNS,TRNS,MUTE,VOLU,TRNS,TRNS,               PGUP,HOME, UP, END, TRNS,DEL,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,TRNS,BRID,VOLD,BRIU,TRNS,               PGDN,LEFT,DOWN,RGHT,TRNS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
@@ -72,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,NLCK,PSLS,PAST,PMNS,TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,CMAK,QWER,TRNS,TRNS,TRNS,               TRNS, P7,  P8,  P9, PPLS,TRNS,
+   TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS, P7,  P8,  P9, PPLS,TRNS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS, P4,  P5,  P6, PCMM,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
@@ -80,5 +61,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      TRNS,TRNS,TRNS,         PENT, P0, PDOT
 //                  `----+----+----'        `----+----+----'
-     ),
+     )
 };
