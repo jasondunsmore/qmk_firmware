@@ -10,28 +10,29 @@ extern keymap_config_t keymap_config;
 // Keys
 #define KC_NLFT LT(_NAVI, KC_LEFT)
 #define KC_NRGT LT(_NAVI, KC_RGHT)
-#define KC_NUMP MO(_NUMP)
+#define KC_NPUP LT(_NUMP, KC_PGUP)
+#define KC_NPDN LT(_NUMP, KC_PGDN)
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_DSFT RSFT_T(KC_DOWN)
-#define KC_USFT LSFT_T(KC_UP)
-#define KC_MCTL RCTL_T(KC_MINS)
-#define KC_ECTL LCTL_T(KC_EQL)
+#define KC_DSFT LSFT_T(KC_DOWN)
+#define KC_USFT RSFT_T(KC_UP)
+#define KC_ECTL RCTL_T(KC_EQL)
+#define KC_MCTL LCTL_T(KC_MINS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAKDHM] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-   GUIE, 1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  BSLS,
+   GUIE, 1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  DEL,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TAB,  Q,   W,   F,   P,   B,                  J,   L,   U,   Y,  SCLN,BSPC,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   R,   S,   T,   G,                  M,   N,   E,   I,   O,  AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   USFT, Z,   X,   C,   D,   V,  NAVI,     NAVI, K,   H,  COMM,DOT, SLSH,DSFT,
+   DSFT, Z,   X,   C,   D,   V,  NPUP,     NPDN, K,   H,  COMM,DOT, SLSH,USFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     NLFT,ECTL,SPC,          ENT, MCTL,NRGT
+                     NLFT,MCTL,SPC,          ENT, ECTL,NRGT
 //                  `----+----+----'        `----+----+----'
      ),
 
@@ -39,13 +40,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-   TRNS,TRNS,MUTE,VOLU,TRNS,TRNS,               PGUP,HOME, UP, END, TRNS,DEL,
+   TRNS,TRNS,MUTE,VOLU,TRNS,TRNS,               PGUP,HOME, UP, END, TRNS,BSLS,
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    TRNS,TRNS,BRID,VOLD,BRIU,TRNS,               PGDN,LEFT,DOWN,RGHT,TRNS,TRNS,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   TRNS,TRNS,TRNS,NUMP,INS, TRNS,TRNS,     TRNS,TRNS,CAPS,LBRC,RBRC,TRNS,TRNS,
+   TRNS,TRNS,TRNS,CAPS,INS, TRNS,TRNS,     TRNS,TRNS,CAPS,LBRC,RBRC,TRNS,TRNS,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
+                     HOME,TRNS,TRNS,         TRNS,TRNS,END
 //                  `----+----+----'        `----+----+----'
      ),
 
