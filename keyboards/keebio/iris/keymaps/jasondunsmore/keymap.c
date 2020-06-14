@@ -4,8 +4,9 @@ extern keymap_config_t keymap_config;
 
 // Layers
 #define _COLEMAKDHM 0 // Colemak-DHm
-#define _NAVI       1 // Navigation
-#define _NUMP       2 // Numpad
+#define _QWERTY     1 // QWERTY
+#define _NAVI       2 // Navigation
+#define _NUMP       3 // Numpad
 
 // Keys
 #define KC_NLFT LT(_NAVI, KC_LEFT)
@@ -15,10 +16,11 @@ extern keymap_config_t keymap_config;
 #define KC_AGRV LALT_T(KC_GRAVE)
 #define KC_AQUO RALT_T(KC_QUOTE)
 #define KC_GUIE LGUI_T(KC_ESC)
-#define KC_DSFT LSFT_T(KC_DOWN)
-#define KC_USFT RSFT_T(KC_UP)
+#define KC_USFT LSFT_T(KC_UP)
+#define KC_DSFT RSFT_T(KC_DOWN)
 #define KC_ECTL RCTL_T(KC_EQL)
 #define KC_MCTL LCTL_T(KC_MINS)
+#define KC_QPDN TT(_QWERTY)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -30,12 +32,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|----+----+----+----+----+----|              |----+----+----+----+----+----|
    AGRV, A,   R,   S,   T,   G,                  M,   N,   E,   I,   O,  AQUO,
 //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-   DSFT, Z,   X,   C,   D,   V,  NPUP,     NPDN, K,   H,  COMM,DOT, SLSH,USFT,
+   USFT, Z,   X,   C,   D,   V,  NPUP,     QPDN, K,   H,  COMM,DOT, SLSH,DSFT,
 //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                      NLFT,MCTL,SPC,          ENT, ECTL,NRGT
 //                  `----+----+----'        `----+----+----'
      ),
 
+  [_QWERTY] = LAYOUT_kc(
+//,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+   GUIE, 1,   2,   3,   4,   5,                  6,   7,   8,   9,   0,  DEL,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+   TAB,  Q,   W,   E,   R,   T,                  Y,   U,   I,   O,   P,  BSPC,
+//|----+----+----+----+----+----|              |----+----+----+----+----+----|
+   AGRV, A,   S,   D,   F,   G,                  H,   J,   K,   L,  SCLN,AQUO,
+//|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+   USFT, Z,   X,   C,   V,   B,  TRNS,     TRNS, N,   M,  COMM,DOT, SLSH,DSFT,
+//`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                     TRNS,TRNS,TRNS,         TRNS,TRNS,TRNS
+//                  `----+----+----'        `----+----+----'
+     ),
+  
   [_NAVI] = LAYOUT_kc(
 //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
    F12,  F1,  F2,  F3,  F4,  F5,                 F6,  F7,  F8,  F9, F10, F11,
